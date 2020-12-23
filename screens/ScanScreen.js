@@ -38,11 +38,11 @@ export default class ScanScreen extends React.Component{
         } else if (buttonState === 'normal'){
             return(
                 <View style={styles.container}>
-                    <Text style={styles.displayText}>{hasCameraPermissions ? this.state.scannedData : "Request Camera Permission"}</Text>
+                    <Text style={styles.displayText}>{hasCameraPermissions ? this.state.scannedData : "Scan Barcode"}</Text>
+                    <Text style={styles.displayFineText}>Tap Scanner Icon to Request Permission</Text>
                     <TouchableOpacity
                     onPress={this.getCameraPermission}>
                         <Image style={styles.scannerImg} source={require('../assets/scanner.jpg')}/>
-                        <Text style={styles.buttonText}>Scan QR Code</Text>
                     </TouchableOpacity>
                 </View>
             );
@@ -59,9 +59,9 @@ const styles=StyleSheet.create({
         alignItems: 'center'
     },
     displayText: {
-        fontSize: 15,
-        textDecorationLine: 'underline',
-
+        fontSize: 25,
+        color: 'deepskyblue',
+        fontWeight: 'bold',
     },
     scanButton:{
         backgroundColor: '#2196f3',
@@ -72,9 +72,14 @@ const styles=StyleSheet.create({
         fontSize: 20,
         color: '#ffffff',
     },
-    
+    displayFineText:{
+        fontSize: 15,
+        textDecorationLine: 'underline',
+
+    },
     scannerImg:{
-        height: 200,
-        width: 200,
+        height: 100,
+        width: 100,
+        margin: 20,
     }
 })
